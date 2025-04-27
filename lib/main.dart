@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/features/authentecation/presentation/screens/welcome_screen.dart';
+import 'package:ecommerce_app/core/routing/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,7 +14,8 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: const WelcomeScreen(),
+      initialRoute: AppRouter.welcome,
+      getPages: AppRouter.routes,
     );
   }
 }
