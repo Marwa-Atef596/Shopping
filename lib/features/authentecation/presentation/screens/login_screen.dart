@@ -128,9 +128,6 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                width: 4,
-              ),
-              SizedBox(
                 height: 50,
               ),
               CustomButton(
@@ -143,7 +140,28 @@ class LoginScreen extends StatelessWidget {
                     fontSize: 18,
                     color: Colors.white,
                     fontWeight: FontWeight.bold),
-              )
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              TextUtils(
+                  text: 'OR',
+                  fontSize: 18,
+                  color: Colors.black,
+                  fontWeight: FontWeight.normal),
+              SizedBox(
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  InkWell(child: Image.asset('assets/images/facebook.png')),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  InkWell(child: Image.asset('assets/images/google.png')),
+                ],
+              ),
             ],
           ),
         ),
