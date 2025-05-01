@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/core/helpers/my_string.dart';
+import 'package:ecommerce_app/core/routing/app_router.dart';
 import 'package:ecommerce_app/core/theme.dart';
 import 'package:ecommerce_app/core/utils/custom_button.dart';
 import 'package:ecommerce_app/core/utils/text_utils.dart';
@@ -24,11 +25,13 @@ class SignUpScreen extends StatelessWidget {
       bottomNavigationBar: CustomBottomContainer(
         text2: 'Login',
         text: 'Already have an Account ?',
-        onPressed: () {},
+        onPressed: () {
+          Get.offNamed(Routs.loginScreen);
+        },
       ),
-      backgroundColor: Get.isDarkMode ? Colors.white : Colors.black,
+      backgroundColor: Get.isDarkMode ? Colors.black : Colors.white,
       appBar: AppBar(
-        backgroundColor: Get.isDarkMode ? Colors.white : Colors.black,
+        backgroundColor: Get.isDarkMode ? Colors.black : Colors.white,
         elevation: 0,
       ),
       body: SingleChildScrollView(
@@ -56,7 +59,7 @@ class SignUpScreen extends StatelessWidget {
                     TextUtils(
                         text: 'UP',
                         fontSize: 28,
-                        color: Get.isDarkMode ? Colors.black : Colors.white,
+                        color: Get.isDarkMode ? Colors.white : Colors.black,
                         fontWeight: FontWeight.w500),
                   ],
                 ),
@@ -139,7 +142,7 @@ class SignUpScreen extends StatelessWidget {
                   TextUtils(
                       text: 'I accept',
                       fontSize: 16,
-                      color: Get.isDarkMode ? Colors.black : Colors.white,
+                      color: Get.isDarkMode ? Colors.white : Colors.black,
                       fontWeight: FontWeight.normal),
                   SizedBox(
                     width: 4,
@@ -147,7 +150,7 @@ class SignUpScreen extends StatelessWidget {
                   TextUtils(
                     text: 'terms & conditions',
                     fontSize: 16,
-                    color: Get.isDarkMode ? Colors.black : Colors.white,
+                    color: Get.isDarkMode ? Colors.white : Colors.black,
                     fontWeight: FontWeight.normal,
                     decoration: TextDecoration.underline,
                     decorationColor: Colors.black,
