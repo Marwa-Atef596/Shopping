@@ -1,19 +1,21 @@
+import 'package:ecommerce_app/core/theme.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
     super.key,
     this.onPressed,
-    this.child, this.padding,
+    this.child,
+    this.padding,
   });
   final void Function()? onPressed;
   final Widget? child;
- final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? padding;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.greenAccent,
+        backgroundColor: mainColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
         ),

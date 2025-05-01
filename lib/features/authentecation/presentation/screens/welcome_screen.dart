@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/core/routing/app_router.dart';
+import 'package:ecommerce_app/core/theme.dart';
 import 'package:ecommerce_app/core/utils/text_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -51,7 +52,7 @@ class WelcomeScreen extends StatelessWidget {
                       TextUtils(
                           text: 'Asroo ',
                           fontSize: 20,
-                          color: Colors.greenAccent,
+                          color: mainColor,
                           fontWeight: FontWeight.bold),
                       TextUtils(
                           text: 'Shop',

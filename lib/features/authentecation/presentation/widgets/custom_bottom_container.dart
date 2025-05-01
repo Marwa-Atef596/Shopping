@@ -1,11 +1,13 @@
+import 'package:ecommerce_app/core/theme.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/text_utils.dart';
 
 class CustomBottomContainer extends StatelessWidget {
-  const CustomBottomContainer({super.key, required this.text, this.onPressed, required this.text2});
+  const CustomBottomContainer(
+      {super.key, required this.text, this.onPressed, required this.text2});
   final String text;
- final String text2;
+  final String text2;
   final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
@@ -13,7 +15,7 @@ class CustomBottomContainer extends StatelessWidget {
       width: double.infinity,
       height: MediaQuery.of(context).size.height * .12,
       decoration: BoxDecoration(
-        color: Colors.greenAccent,
+        color: mainColor,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(16),
           topRight: Radius.circular(16),

@@ -1,8 +1,12 @@
+import 'package:ecommerce_app/core/helpers/my_string.dart';
+import 'package:ecommerce_app/core/theme.dart';
 import 'package:ecommerce_app/core/utils/custom_button.dart';
 import 'package:ecommerce_app/core/utils/text_utils.dart';
+import 'package:ecommerce_app/features/authentecation/logic/controller/auth_controller.dart';
 import 'package:ecommerce_app/features/authentecation/presentation/widgets/custom_bottom_container.dart';
 import 'package:ecommerce_app/features/authentecation/presentation/widgets/custom_check_box.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../widgets/custom_text_field.dart';
 
@@ -11,7 +15,8 @@ class SignUpScreen extends StatelessWidget {
   final TextEditingController name = TextEditingController();
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
-
+  final formKey = GlobalKey<FormState>();
+  final controller = Get.find<AuthController>();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -21,9 +26,9 @@ class SignUpScreen extends StatelessWidget {
         text: 'Already have an Account ?',
         onPressed: () {},
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: Get.isDarkMode ? Colors.white : Colors.black,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Get.isDarkMode ? Colors.white : Colors.black,
         elevation: 0,
       ),
       body: SingleChildScrollView(
@@ -43,7 +48,7 @@ class SignUpScreen extends StatelessWidget {
                     TextUtils(
                         text: 'SIGN',
                         fontSize: 28,
-                        color: Colors.greenAccent,
+                        color: mainColor,
                         fontWeight: FontWeight.w500),
                     SizedBox(
                       width: 4,
@@ -51,43 +56,76 @@ class SignUpScreen extends StatelessWidget {
                     TextUtils(
                         text: 'UP',
                         fontSize: 28,
-                        color: Colors.black,
+                        color: Get.isDarkMode ? Colors.black : Colors.white,
                         fontWeight: FontWeight.w500),
                   ],
                 ),
               ),
-              CustomTextField(
-                hintText: 'User Name',
-                controller: name,
-                validator: (p0) {
-                  return null;
-                },
-                prefixIcon: Image.asset('assets/images/user.png'),
-                obscureText: false,
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              CustomTextField(
-                hintText: 'Email',
-                controller: email,
-                validator: (p0) {
-                  return null;
-                },
-                prefixIcon: Image.asset('assets/images/email.png'),
-                obscureText: false,
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              CustomTextField(
-                hintText: 'Password',
-                controller: password,
-                validator: (p0) {
-                  return null;
-                },
-                prefixIcon: Image.asset('assets/images/lock.png'),
-                obscureText: true,
+              Form(
+                key: formKey,
+                child: Column(
+                  children: [
+                    CustomTextField(
+                      hintText: 'User Name',
+                      controller: name,
+                      validator: (value) {
+                        if (value.toString().length <= 2 ||
+                            !RegExp(validationName).hasMatch(value!)) {
+                          return 'Enter Valid Name';
+                        } else {
+                          return null;
+                        }
+                      },
+                      prefixIcon: Image.asset('assets/images/user.png'),
+                      obscureText: false,
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    CustomTextField(
+                      hintText: 'Email',
+                      controller: email,
+                      validator: (value) {
+                        if (!RegExp(validationEmail).hasMatch(value!)) {
+                          return 'Invalid Email';
+                        } else {
+                          return null;
+                        }
+                      },
+                      prefixIcon: Image.asset('assets/images/email.png'),
+                      obscureText: false,
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    GetBuilder<AuthController>(builder: (_) {
+                      return CustomTextField(
+                        suffixIcon: IconButton(
+                            onPressed: () {
+                              controller.visability();
+                            },
+                            icon: controller.isVisible
+                                ? Icon(
+                                    Icons.visibility,
+                                    color: Colors.black,
+                                  )
+                                : Icon(Icons.visibility_off,
+                                    color: Colors.black)),
+                        hintText: 'Password',
+                        controller: password,
+                        validator: (value) {
+                          if (value.toString().length < 6) {
+                            return 'Short Password';
+                          } else {
+                            return null;
+                          }
+                        },
+                        prefixIcon: Image.asset('assets/images/lock.png'),
+                        obscureText: controller.isVisible ? false : true,
+                      );
+                    }),
+                  ],
+                ),
               ),
               SizedBox(
                 height: 50,
@@ -101,7 +139,7 @@ class SignUpScreen extends StatelessWidget {
                   TextUtils(
                       text: 'I accept',
                       fontSize: 16,
-                      color: Colors.black,
+                      color: Get.isDarkMode ? Colors.black : Colors.white,
                       fontWeight: FontWeight.normal),
                   SizedBox(
                     width: 4,
@@ -109,7 +147,7 @@ class SignUpScreen extends StatelessWidget {
                   TextUtils(
                     text: 'terms & conditions',
                     fontSize: 16,
-                    color: Colors.black,
+                    color: Get.isDarkMode ? Colors.black : Colors.white,
                     fontWeight: FontWeight.normal,
                     decoration: TextDecoration.underline,
                     decorationColor: Colors.black,
