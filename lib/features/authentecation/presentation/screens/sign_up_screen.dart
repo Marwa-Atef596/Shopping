@@ -118,7 +118,7 @@ class SignUpScreen extends StatelessWidget {
                         controller: password,
                         validator: (value) {
                           if (value.toString().length < 6) {
-                            return 'Short Password';
+                            return 'invalid Password';
                           } else {
                             return null;
                           }
@@ -160,16 +160,38 @@ class SignUpScreen extends StatelessWidget {
               SizedBox(
                 height: 50,
               ),
-              CustomButton(
-                onPressed: () {},
-                padding: EdgeInsets.symmetric(
-                    horizontal: MediaQuery.of(context).size.height * .18,
-                    vertical: 12),
-                child: TextUtils(
-                    text: 'Sign Up',
-                    fontSize: 18,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
+              GetBuilder<AuthController>(builder: (_) {
+                return CustomButton(
+                  onPressed: () {
+                    if (controller.isCheck == false) {
+                      Get.snackbar(
+                        'CheckBox',
+                        'please accept terms & conditions',
+                        snackPosition: SnackPosition.BOTTOM,
+                        backgroundColor: mainColor,
+                        colorText: Colors.white,
+                      );
+                    } else if (formKey.currentState!.validate()) {
+                      controller.signUp(
+                        name: name.text.trim(),
+                        email: email.text.trim(),
+                        password: password.text,
+                      );
+                      controller.isCheck = true;
+                    }
+                  },
+                  padding: EdgeInsets.symmetric(
+                      horizontal: MediaQuery.of(context).size.height * .18,
+                      vertical: 12),
+                  child: TextUtils(
+                      text: 'Sign Up',
+                      fontSize: 18,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
+                );
+              }),
+              SizedBox(
+                height: 50,
               )
             ],
           ),

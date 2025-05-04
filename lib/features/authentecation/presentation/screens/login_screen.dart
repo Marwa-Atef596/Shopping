@@ -99,7 +99,7 @@ class LoginScreen extends StatelessWidget {
                         controller: password,
                         validator: (value) {
                           if (value.toString().length < 6) {
-                            return 'Short Password';
+                            return 'invalid Password';
                           } else {
                             return null;
                           }
@@ -130,17 +130,26 @@ class LoginScreen extends StatelessWidget {
               SizedBox(
                 height: 50,
               ),
-              CustomButton(
-                onPressed: () {},
-                padding: EdgeInsets.symmetric(
-                    horizontal: MediaQuery.of(context).size.height * .18,
-                    vertical: 12),
-                child: TextUtils(
-                    text: 'Login',
-                    fontSize: 18,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
-              ),
+              GetBuilder<AuthController>(builder: (_) {
+                return CustomButton(
+                  onPressed: () {
+                    if (formKey.currentState!.validate()) {
+                      controller.logIn(
+                        email: email.text.trim(),
+                        password: password.text,
+                      );
+                    }
+                  },
+                  padding: EdgeInsets.symmetric(
+                      horizontal: MediaQuery.of(context).size.height * .18,
+                      vertical: 12),
+                  child: TextUtils(
+                      text: 'Login',
+                      fontSize: 18,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
+                );
+              }),
               SizedBox(
                 height: 20,
               ),
@@ -152,16 +161,23 @@ class LoginScreen extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  InkWell(child: Image.asset('assets/images/facebook.png')),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  InkWell(child: Image.asset('assets/images/google.png')),
-                ],
-              ),
+              GetBuilder<AuthController>(builder: (_) {
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    InkWell(child: Image.asset('assets/images/facebook.png')),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    InkWell(
+                      onTap: () => controller.googleSignUp(),
+                      child: Image.asset(
+                        'assets/images/google.png',
+                      ),
+                    ),
+                  ],
+                );
+              })
             ],
           ),
         ),
