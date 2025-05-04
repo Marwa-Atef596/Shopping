@@ -14,16 +14,16 @@ const Color logOutSettings = Color(0xff5f95ef);
 const Color notiSettings = Color(0xffdf5862);
 const Color languageSettings = Color(0xffCB256C);
 
-// class ThemesApp {
-//   static final light = ThemeData(
-//     primaryColor: mainColor,
-//     backgroundColor: Colors.white,
-//     brightness: Brightness.light,
-//   );
+class ThemesApp {
+  static final light = ThemeData(
+    primaryColor: mainColor,
+    scaffoldBackgroundColor: Colors.white,
+    brightness: Brightness.light,
+  );
 
-//   static final dark = ThemeData(
-//     primaryColor: darkGreyClr,
-//     backgroundColor: darkGreyClr,
-//     brightness: Brightness.dark,
-//   );
-// }
+  static final dark = ThemeData(
+    primaryColor: darkGreyClr,
+    scaffoldBackgroundColor: darkGreyClr,
+    brightness: Brightness.dark,
+  );
+}
