@@ -3,6 +3,7 @@ import 'package:ecommerce_app/core/theme.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthController extends GetxController {
@@ -12,6 +13,8 @@ class AuthController extends GetxController {
   var displayPhoto = '';
   FirebaseAuth auth = FirebaseAuth.instance;
   GoogleSignIn googleSignIn = GoogleSignIn();
+  bool isSigned = false;
+  final GetStorage authBox = GetStorage();
 
   void visability() {
     isVisible = !isVisible;
@@ -35,8 +38,10 @@ class AuthController extends GetxController {
         displayName = name;
         auth.currentUser!.updateDisplayName(name);
       });
+      isSigned = true;
+      authBox.write('auth', isSigned);
       update();
-      Get.offNamed(Routs.homeScreen);
+      Get.offNamed(Routs.mainScreen);
     } on FirebaseAuthException catch (e) {
       String? title = e.code.replaceAll(RegExp('-'), ' ').capitalize;
       String message = '';
@@ -73,8 +78,11 @@ class AuthController extends GetxController {
       await auth
           .signInWithEmailAndPassword(email: email, password: password)
           .then((value) => displayName = auth.currentUser!.displayName!);
+
+      isSigned = true;
+      authBox.write('auth', isSigned);
       update();
-      Get.offNamed(Routs.homeScreen);
+      Get.offNamed(Routs.mainScreen);
     } on FirebaseAuthException catch (e) {
       String title = e.code.replaceAll(RegExp('-'), ' ');
       String message = '';
@@ -142,10 +150,35 @@ class AuthController extends GetxController {
       final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
       displayName = googleUser!.displayName!;
       displayPhoto = googleUser.photoUrl!;
+
+      isSigned = true;
+      authBox.write('auth', isSigned);
+
       update();
-      Get.offNamed(Routs.homeScreen);
+      Get.offNamed(Routs.mainScreen);
     } catch (e) {
-       Get.snackbar(
+      Get.snackbar(
+        'Error',
+        e.toString(),
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: mainColor,
+        colorText: Colors.white,
+      );
+    }
+  }
+
+  void signOut() async {
+    try {
+      await auth.signOut();
+      googleSignIn.signOut();
+      displayName = '';
+      displayPhoto = '';
+      isSigned = false;
+      authBox.remove('auth');
+      update();
+      Get.offNamed(Routs.welcomeScreen);
+    } catch (e) {
+      Get.snackbar(
         'Error',
         e.toString(),
         snackPosition: SnackPosition.BOTTOM,

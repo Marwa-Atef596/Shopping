@@ -11,6 +11,7 @@ import '../../features/home/presentation/screens/main_screen.dart';
 class AppRouter {
   //initial
   static const welcome = Routs.welcomeScreen;
+  static const mainScreen = Routs.mainScreen;
 
   static final routes = [
     GetPage(
@@ -32,7 +33,7 @@ class AppRouter {
       binding: AuthBindiing(),
     ),
     GetPage(
-      name: Routs.homeScreen,
+      name: Routs.mainScreen,
       page: () => MainScreen(),
       bindings: [
         AuthBindiing(),
@@ -47,5 +48,5 @@ class Routs {
   static const loginScreen = '/loginScreen';
   static const signUpScreen = '/signUpScreen';
   static const forgetPassScreen = '/forgetPassScreen';
-  static const homeScreen = '/homeScreen';
+  static const mainScreen = '/mainScreen';
 }

@@ -1,6 +1,5 @@
 import 'package:ecommerce_app/core/theme.dart';
 import 'package:ecommerce_app/features/home/logic/controller/home_controller.dart';
-import 'package:ecommerce_app/features/home/logic/controller/theme_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,9 +14,7 @@ class MainScreen extends StatelessWidget {
         appBar: AppBar(
           actions: [
             IconButton(
-              onPressed: () {
-                ThemeController().changeTheme();
-              },
+              onPressed: () {},
               icon: Image.asset('assets/images/shop.png'),
             ),
           ],
@@ -44,6 +41,7 @@ class MainScreen extends StatelessWidget {
             controller.currentIndex.value = value;
           },
         ),
+        body: controller.tabs[controller.currentIndex.value],
       );
     });
   }
