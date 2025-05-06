@@ -1,41 +1,48 @@
 import 'package:ecommerce_app/features/home/data/model/product_model/product_model.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../../core/utils/text_utils.dart';
+import '../../logic/controller/product_controller.dart';
 
 class CustomItem extends StatelessWidget {
-  const CustomItem({
+  CustomItem({
     super.key,
     required this.productModel,
   });
   final ProductModel productModel;
+  final controller = Get.find<ProductController>();
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.favorite_outline,
+        Obx(() {
+          return Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              IconButton(
+                onPressed: () {
+                  controller.faveControle(productModel.id!);
+                },
+                icon: controller.isFavorite(productModel.id!)
+                    ? Icon(
+                        Icons.favorite,
+                        color: Colors.red,
+                      )
+                    : Icon(
+                        Icons.favorite_outline,
+                      ),
               ),
-            ),
-            // Text(
-            //   productModel.title ?? '',
-            //   style: TextStyle(
-            //       color: Get.isDarkMode ? Colors.white : Colors.black,
-            //       overflow: TextOverflow.ellipsis),
-            // ),
-            IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.add,
+              IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.add,
+                ),
               ),
-            ),
-          ],
-        ),
+            ],
+          );
+        }),
         SizedBox(
           height: 10,
         ),
@@ -71,8 +78,7 @@ class CustomItem extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         TextUtils(
-                            text:
-                                '\$${productModel.price!.toStringAsFixed(2) ?? '0.00'}',
+                            text: '\$${productModel.price!.toStringAsFixed(2)}',
                             fontSize: 18,
                             color: Colors.black,
                             fontWeight: FontWeight.normal),
