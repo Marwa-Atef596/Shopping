@@ -5,7 +5,7 @@ import 'package:ecommerce_app/features/home/presentation/screens/settings_screen
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
-  RxInt currentIndex = 0.obs;//stream data
+  RxInt currentIndex = 0.obs; //stream data
 
   final tabs = [
     HomeScreen(),

@@ -4,6 +4,8 @@ import 'package:ecommerce_app/features/authentecation/presentation/widgets/custo
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../widgets/custom_grid_item.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -77,134 +79,8 @@ class HomeScreen extends StatelessWidget {
         SizedBox(
           height: 20,
         ),
-        Expanded(
-          child: GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 16,
-              mainAxisSpacing: 16,
-            ),
-            itemCount: 10,
-            itemBuilder: (BuildContext context, int index) {
-              return CustomContainerItem();
-            },
-          ),
-        ),
+        CustomGridItem(),
       ],
     ));
-  }
-}
-
-class CustomContainerItem extends StatelessWidget {
-  const CustomContainerItem({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 200,
-      decoration:
-          BoxDecoration(borderRadius: BorderRadius.circular(16), boxShadow: [
-        BoxShadow(
-          color: Colors.grey.withValues(alpha: .15),
-          blurRadius: 5,
-          spreadRadius: 3,
-        )
-      ]),
-      child: CustomItem(),
-    );
-  }
-}
-
-class CustomItem extends StatelessWidget {
-  const CustomItem({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.favorite_outline,
-              ),
-            ),
-            TextUtils(
-                text: 'text',
-                fontSize: 18,
-                color: Get.isDarkMode ? Colors.white : Colors.black,
-                fontWeight: FontWeight.normal),
-            IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.add,
-              ),
-            ),
-          ],
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Expanded(
-          child: Container(
-            width: double.infinity,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              image: DecorationImage(
-                  image: NetworkImage(
-                    'https://plus.unsplash.com/premium_photo-1672363353911-debc1fc593cb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-                  ),
-                  fit: BoxFit.cover),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 0,
-              ),
-              child: Stack(children: [
-                Positioned(
-                  left: 16,
-                  right: 16,
-                  bottom: 10,
-                  child: Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.grey.withValues(alpha: 0.7)),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        TextUtils(
-                            text: 'text',
-                            fontSize: 18,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500),
-                        SizedBox(
-                          height: 20,
-                          child: VerticalDivider(
-                            color: Colors.black,
-                          ),
-                        ),
-                        TextUtils(
-                            text: 'text',
-                            fontSize: 18,
-                            color: Colors.black,
-                            fontWeight: FontWeight.normal),
-                      ],
-                    ),
-                  ),
-                ),
-              ]),
-            ),
-          ),
-        )
-      ],
-    );
   }
 }

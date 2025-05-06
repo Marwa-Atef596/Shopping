@@ -30,7 +30,7 @@ class CustomBottomContainer extends StatelessWidget {
               color: Colors.white,
               fontWeight: FontWeight.normal),
           TextButton(
-              onPressed:onPressed,
+              onPressed: onPressed,
               child: TextUtils(
                 text: text2,
                 fontSize: 20,

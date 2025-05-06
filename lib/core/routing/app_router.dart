@@ -4,6 +4,7 @@ import 'package:ecommerce_app/features/authentecation/presentation/screens/login
 import 'package:ecommerce_app/features/authentecation/presentation/screens/sign_up_screen.dart';
 import 'package:ecommerce_app/features/authentecation/presentation/screens/welcome_screen.dart';
 import 'package:ecommerce_app/features/home/logic/binding/home_binding.dart';
+import 'package:ecommerce_app/features/home/logic/binding/product_binding.dart';
 import 'package:get/get.dart';
 
 import '../../features/home/presentation/screens/main_screen.dart';
@@ -38,6 +39,7 @@ class AppRouter {
       bindings: [
         AuthBindiing(),
         HomeBinding(),
+        ProductBinding(),
       ],
     ),
   ];
