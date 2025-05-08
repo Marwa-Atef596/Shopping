@@ -1,13 +1,21 @@
+import 'package:ecommerce_app/features/home/logic/controller/cart_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/theme.dart';
+import '../../data/model/product_model/product_model.dart';
 
 class CustomCartContainer extends StatelessWidget {
-  const CustomCartContainer({
+  CustomCartContainer({
     super.key,
+    required this.productModel,
+    required this.index,
+    required this.quantenty,
   });
-
+  final int index;
+  final int quantenty;
+  final ProductModel productModel;
+  final cartController = Get.find<CartController>();
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -24,10 +32,11 @@ class CustomCartContainer extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(16),
               child: Image.network(
-                'https://images.unsplash.com/photo-1746433780060-986b6ff8287a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                productModel.image ??
+                    'https://images.unsplash.com/photo-1746433780060-986b6ff8287a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
                 width: 100,
                 height: 100,
-                fit: BoxFit.cover,
+                fit: BoxFit.contain,
               ),
             ),
             const SizedBox(width: 12),
@@ -35,16 +44,22 @@ class CustomCartContainer extends StatelessWidget {
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   Text(
-                    'jojaoAJ',
+                    productModel.title ?? "",
                     style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      overflow: TextOverflow.ellipsis,
-                    ),
+                        fontWeight: FontWeight.bold,
+                        overflow: TextOverflow.ellipsis,
+                        fontSize: 18),
                   ),
                   SizedBox(height: 5),
-                  Text('nn'),
+                  Text(
+                    '\$${cartController.subTotal[index].toString()}',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -54,7 +69,9 @@ class CustomCartContainer extends StatelessWidget {
                 Row(
                   children: [
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        cartController.decreaseItem(productModel);
+                      },
                       icon: Icon(
                         Icons.remove_circle,
                         color: Get.isDarkMode ? Colors.white : Colors.black,
@@ -62,7 +79,7 @@ class CustomCartContainer extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '1',
+                      '$quantenty',
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -70,7 +87,9 @@ class CustomCartContainer extends StatelessWidget {
                       ),
                     ),
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        cartController.increaseItem(productModel);
+                      },
                       icon: Icon(
                         Icons.add_circle,
                         color: Get.isDarkMode ? Colors.white : Colors.black,
@@ -80,7 +99,9 @@ class CustomCartContainer extends StatelessWidget {
                   ],
                 ),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    cartController.removeItem(productModel);
+                  },
                   icon: Icon(
                     Icons.delete,
                     color: Colors.redAccent,

@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/features/home/data/model/product_model/product_model.dart';
+import 'package:ecommerce_app/features/home/logic/controller/cart_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,6 +13,7 @@ class CustomItem extends StatelessWidget {
   });
   final ProductModel productModel;
   final controller = Get.find<ProductController>();
+  final cartController = Get.find<CartController>();
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +37,9 @@ class CustomItem extends StatelessWidget {
                       ),
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  cartController.increaseItem(productModel);
+                },
                 icon: Icon(
                   Icons.add,
                 ),

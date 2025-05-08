@@ -3,6 +3,7 @@ import 'package:ecommerce_app/features/authentecation/presentation/screens/forge
 import 'package:ecommerce_app/features/authentecation/presentation/screens/login_screen.dart';
 import 'package:ecommerce_app/features/authentecation/presentation/screens/sign_up_screen.dart';
 import 'package:ecommerce_app/features/authentecation/presentation/screens/welcome_screen.dart';
+import 'package:ecommerce_app/features/home/logic/binding/cart_binding.dart';
 import 'package:ecommerce_app/features/home/logic/binding/home_binding.dart';
 import 'package:ecommerce_app/features/home/logic/binding/product_binding.dart';
 import 'package:ecommerce_app/features/home/presentation/screens/cart_screen.dart';
@@ -41,12 +42,16 @@ class AppRouter {
         AuthBindiing(),
         HomeBinding(),
         ProductBinding(),
+        CartBinding(),
       ],
     ),
     GetPage(
       name: Routs.cartScreen,
       page: () => CartScreen(),
-      binding: AuthBindiing(),
+      bindings: [
+        AuthBindiing(),
+        ProductBinding(),
+      ],
     ),
   ];
 }

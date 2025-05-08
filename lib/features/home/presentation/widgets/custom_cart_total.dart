@@ -1,11 +1,13 @@
 import 'package:ecommerce_app/core/utils/custom_button.dart';
 import 'package:ecommerce_app/core/utils/text_utils.dart';
+import 'package:ecommerce_app/features/home/logic/controller/cart_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class CustomCartTotal extends StatelessWidget {
-  const CustomCartTotal({super.key});
-
+  CustomCartTotal({super.key});
+  final cartController = Get.find<CartController>();
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -14,15 +16,17 @@ class CustomCartTotal extends StatelessWidget {
         Column(
           children: [
             TextUtils(
-                text: 'dd',
+                text: 'Total',
                 fontSize: 18,
                 color: Get.isDarkMode ? Colors.white : Colors.black,
                 fontWeight: FontWeight.w300),
-            TextUtils(
-                text: 'skodck',
-                fontSize: 18,
-                color: Get.isDarkMode ? Colors.white : Colors.black,
-                fontWeight: FontWeight.w300),
+            Obx(() {
+              return TextUtils(
+                  text: '\$${cartController.total}',
+                  fontSize: 18,
+                  color: Get.isDarkMode ? Colors.white : Colors.black,
+                  fontWeight: FontWeight.w300);
+            }),
           ],
         ),
         SizedBox(
