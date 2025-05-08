@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/routing/app_router.dart';
 import 'package:ecommerce_app/core/theme.dart';
 import 'package:ecommerce_app/features/home/logic/controller/home_controller.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,9 @@ class MainScreen extends StatelessWidget {
         appBar: AppBar(
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Get.toNamed(Routs.cartScreen);
+              },
               icon: Image.asset('assets/images/shop.png'),
             ),
           ],

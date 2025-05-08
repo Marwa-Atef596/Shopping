@@ -48,7 +48,7 @@ class CustomItem extends StatelessWidget {
         ),
         Expanded(
           child: Container(
-            width: double.infinity,
+            //   width: double.infinity,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
               image: DecorationImage(
@@ -59,52 +59,47 @@ class CustomItem extends StatelessWidget {
                   ),
                   fit: BoxFit.contain),
             ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 0,
-              ),
-              child: Stack(children: [
-                Positioned(
-                  left: 16,
-                  right: 16,
-                  bottom: 10,
-                  child: Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.grey.withValues(alpha: 0.7)),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        TextUtils(
-                            text: '\$${productModel.price!.toStringAsFixed(2)}',
-                            fontSize: 18,
-                            color: Colors.black,
-                            fontWeight: FontWeight.normal),
-                        SizedBox(
-                          height: 20,
-                          child: VerticalDivider(
-                            color: Colors.black,
-                          ),
+            child: Stack(children: [
+              Positioned(
+                left: 16,
+                right: 16,
+                bottom: 10,
+                child: Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.grey.withValues(alpha: 0.7)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      TextUtils(
+                          text: '\$${productModel.price!.toStringAsFixed(2)}',
+                          fontSize: 18,
+                          color: Colors.black,
+                          fontWeight: FontWeight.normal),
+                      SizedBox(
+                        height: 20,
+                        child: VerticalDivider(
+                          color: Colors.black,
                         ),
-                        TextUtils(
-                            text: productModel.rating!.rate.toString(),
-                            fontSize: 18,
-                            color: Colors.black,
-                            fontWeight: FontWeight.normal),
-                        // IconButton(
-                        //     onPressed: () {},
-                        //     icon: Icon(
-                        //       Icons.star,
-                        //       size: 18,
-                        //     ))
-                      ],
-                    ),
+                      ),
+                      TextUtils(
+                          text: productModel.rating!.rate.toString(),
+                          fontSize: 18,
+                          color: Colors.black,
+                          fontWeight: FontWeight.normal),
+                      // IconButton(
+                      //     onPressed: () {},
+                      //     icon: Icon(
+                      //       Icons.star,
+                      //       size: 18,
+                      //     ))
+                    ],
                   ),
                 ),
-              ]),
-            ),
+              ),
+            ]),
           ),
         )
       ],

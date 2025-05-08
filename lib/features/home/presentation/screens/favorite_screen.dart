@@ -47,18 +47,29 @@ class FavoriteScreen extends StatelessWidget {
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8),
                 child: ListTile(
-                  leading: Container(
-                    width: MediaQuery.of(context).size.width * .25,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16),
-                      image: DecorationImage(
-                          image: NetworkImage(
-                            productModel.image ??
-                                'https://images.unsplash.com/photo-1746433780060-986b6ff8287a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-                          ),
-                          fit: BoxFit.contain),
+                  leading: ClipRRect(
+                    borderRadius: BorderRadius.circular(16),
+                    child: Image.network(
+                      productModel.image ??
+                          'https://images.unsplash.com/photo-1746433780060-986b6ff8287a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                      width: 100,
+                      height: 100,
+                      fit: BoxFit.contain,
                     ),
                   ),
+
+                  //  Container(
+                  //   width: MediaQuery.of(context).size.width * .25,
+                  //   decoration: BoxDecoration(
+                  //     borderRadius: BorderRadius.circular(16),
+                  //     image: DecorationImage(
+                  //         image: NetworkImage(
+                  //           productModel.image ??
+                  //               'https://images.unsplash.com/photo-1746433780060-986b6ff8287a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                  //         ),
+                  //         fit: BoxFit.contain),
+                  //   ),
+                  // ),
                   trailing: IconButton(
                     onPressed: () {},
                     icon: IconButton(
