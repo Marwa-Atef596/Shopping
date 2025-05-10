@@ -1,13 +1,16 @@
 //import 'package:carousel_slider/carousel_slider.dart' as carousel;
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:ecommerce_app/core/routing/app_router.dart';
 import 'package:ecommerce_app/core/theme.dart';
 import 'package:ecommerce_app/features/home/presentation/widgets/color_picker.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:badges/badges.dart' as badges;
 
 import '../../data/model/product_model/product_model.dart';
+import '../../logic/controller/cart_controller.dart';
 
 class ImageSlider extends StatefulWidget {
   const ImageSlider({
@@ -23,6 +26,8 @@ class ImageSlider extends StatefulWidget {
 class _ImageSliderState extends State<ImageSlider> {
   // final carousel.CarouselController carouselController =
   //     carousel.CarouselController();
+  final cartController = Get.find<CartController>();
+
   int currentPage = 0;
   int currentColor = 0;
   final List<Color> colorsList = [
@@ -109,6 +114,57 @@ class _ImageSliderState extends State<ImageSlider> {
                   );
                 },
               ),
+            )),
+        Positioned(
+            top: 30,
+            left: 20,
+            right: 20,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                InkWell(
+                  onTap: () => Get.back(),
+                  child: Container(
+                    padding: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                        color: Colors.black.withValues(alpha: .3),
+                        shape: BoxShape.circle),
+                    child: Icon(
+                      Icons.arrow_back_ios,
+                      color: Get.isDarkMode ? Colors.black : mainColor,
+                    ),
+                  ),
+                ),
+                badges.Badge(
+                  position: badges.BadgePosition.topEnd(top: -10, end: -8),
+                  badgeAnimation: badges.BadgeAnimation.slide(
+                    disappearanceFadeAnimationDuration:
+                        Duration(milliseconds: 200),
+                    curve: Curves.easeInCubic,
+                  ),
+                  //showBadge: _showCartBadge,
+                  badgeStyle: badges.BadgeStyle(
+                    badgeColor: Colors.red,
+                  ),
+                  badgeContent: Text(
+                    cartController.quantety().toString(),
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  child: InkWell(
+                    onTap: () => Get.toNamed(Routs.cartScreen),
+                    child: Container(
+                      padding: EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                          color: Colors.black.withValues(alpha: .3),
+                          shape: BoxShape.circle),
+                      child: Icon(
+                        Icons.shopping_cart,
+                        color: Get.isDarkMode ? Colors.black : mainColor,
+                      ),
+                    ),
+                  ),
+                )
+              ],
             ))
       ],
     );
