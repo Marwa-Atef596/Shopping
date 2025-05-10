@@ -1,6 +1,7 @@
 //import 'package:carousel_slider/carousel_slider.dart' as carousel;
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecommerce_app/core/theme.dart';
+import 'package:ecommerce_app/features/home/presentation/widgets/color_picker.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -23,7 +24,14 @@ class _ImageSliderState extends State<ImageSlider> {
   // final carousel.CarouselController carouselController =
   //     carousel.CarouselController();
   int currentPage = 0;
-
+  int currentColor = 0;
+  final List<Color> colorsList = [
+    kCOlor1,
+    kCOlor2,
+    kCOlor3,
+    kCOlor4,
+    kCOlor5,
+  ];
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -71,6 +79,37 @@ class _ImageSliderState extends State<ImageSlider> {
             ),
           ),
         ),
+        Positioned(
+            bottom: 30,
+            right: 30,
+            child: Container(
+              padding: EdgeInsets.all(8),
+              height: 200,
+              width: 50,
+              decoration: BoxDecoration(
+                color: Colors.black.withValues(alpha: .2),
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: ListView.separated(
+                itemCount: colorsList.length,
+                separatorBuilder: (BuildContext context, int index) => SizedBox(
+                  height: 3,
+                ),
+                itemBuilder: (BuildContext context, int index) {
+                  return GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        currentColor = index;
+                      });
+                    },
+                    child: ColorPicker(
+                      color: colorsList[index],
+                      outerBorder: currentColor == index,
+                    ),
+                  );
+                },
+              ),
+            ))
       ],
     );
   }

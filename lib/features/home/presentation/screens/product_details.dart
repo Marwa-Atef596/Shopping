@@ -3,7 +3,10 @@ import 'package:ecommerce_app/features/home/presentation/widgets/image_slider.da
 import 'package:flutter/material.dart';
 
 class ProductDetails extends StatelessWidget {
-  const ProductDetails({super.key, required this.productModel,});
+  const ProductDetails({
+    super.key,
+    required this.productModel,
+  });
   final ProductModel productModel;
   @override
   Widget build(BuildContext context) {
@@ -11,9 +14,9 @@ class ProductDetails extends StatelessWidget {
       body: Column(
         children: [
           ImageSlider(
-           productModel: productModel,
-          
+            productModel: productModel,
           ),
+          
         ],
       ),
     );
