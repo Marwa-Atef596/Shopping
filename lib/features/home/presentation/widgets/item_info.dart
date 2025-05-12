@@ -1,7 +1,9 @@
+import 'package:ecommerce_app/core/theme.dart';
 import 'package:ecommerce_app/core/utils/text_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
+import 'package:readmore/readmore.dart';
 
 import '../../data/model/product_model/product_model.dart';
 import '../../logic/controller/product_controller.dart';
@@ -77,6 +79,20 @@ class ItemInfo extends StatelessWidget {
                 },
               )
             ],
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          ReadMoreText(
+            productModel.description!,
+            trimMode: TrimMode.Line,
+            trimLines: 3,
+            textAlign: TextAlign.justify,
+            colorClickableText: mainColor,
+            trimCollapsedText: 'Show more',
+            trimExpandedText: 'Show less',
+            style: TextStyle(fontSize: 16),
+            moreStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           )
         ],
       ),

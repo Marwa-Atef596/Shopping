@@ -12,15 +12,17 @@ class ProductDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          ImageSlider(
-            productModel: productModel,
-          ),
-          ItemInfo(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            ImageSlider(
               productModel: productModel,
-          ),
-        ],
+            ),
+            ItemInfo(
+              productModel: productModel,
+            ),
+          ],
+        ),
       ),
     );
   }
