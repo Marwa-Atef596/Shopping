@@ -1,5 +1,6 @@
-import 'package:ecommerce_app/features/home/data/model/product_model/product_model.dart';
-import 'package:ecommerce_app/features/home/presentation/widgets/image_slider.dart';
+import '../../data/model/product_model/product_model.dart';
+import '../widgets/image_slider.dart';
+import '../widgets/item_info.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetails extends StatelessWidget {
@@ -16,7 +17,9 @@ class ProductDetails extends StatelessWidget {
           ImageSlider(
             productModel: productModel,
           ),
-          
+          ItemInfo(
+              productModel: productModel,
+          ),
         ],
       ),
     );

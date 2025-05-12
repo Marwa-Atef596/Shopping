@@ -1,6 +1,6 @@
-import 'package:ecommerce_app/core/routing/app_router.dart';
-import 'package:ecommerce_app/core/theme.dart';
-import 'package:ecommerce_app/features/home/logic/controller/theme_controller.dart';
+import 'core/routing/app_router.dart';
+import 'core/theme.dart';
+import 'features/home/logic/controller/theme_controller.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';

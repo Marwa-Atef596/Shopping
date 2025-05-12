@@ -1,7 +1,7 @@
-import 'package:ecommerce_app/core/theme.dart';
-import 'package:ecommerce_app/core/utils/text_utils.dart';
-import 'package:ecommerce_app/features/home/presentation/widgets/custom_cart_total.dart';
-import 'package:ecommerce_app/features/home/presentation/widgets/empty_cart.dart';
+import '../../../../core/theme.dart';
+import '../../../../core/utils/text_utils.dart';
+import '../widgets/custom_cart_total.dart';
+import '../widgets/empty_cart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

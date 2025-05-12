@@ -1,6 +1,6 @@
-import 'package:ecommerce_app/core/theme.dart';
-import 'package:ecommerce_app/core/utils/text_utils.dart';
-import 'package:ecommerce_app/features/authentecation/presentation/widgets/custom_text_field.dart';
+import '../../../../core/theme.dart';
+import '../../../../core/utils/text_utils.dart';
+import '../../../authentecation/presentation/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -69,12 +69,15 @@ class HomeScreen extends StatelessWidget {
         SizedBox(
           height: 20,
         ),
-        TextUtils(
-          text: 'Categories',
-          fontSize: 22,
-          color: Get.isDarkMode ? Colors.white : Colors.black,
-          fontWeight: FontWeight.w400,
-          textAlign: TextAlign.start,
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: TextUtils(
+            text: 'Categories',
+            fontSize: 22,
+            color: Get.isDarkMode ? Colors.white : Colors.black,
+            fontWeight: FontWeight.w400,
+            textAlign: TextAlign.start,
+          ),
         ),
         SizedBox(
           height: 20,

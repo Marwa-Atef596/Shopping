@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/features/home/logic/controller/cart_controller.dart';
+import '../../logic/controller/cart_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

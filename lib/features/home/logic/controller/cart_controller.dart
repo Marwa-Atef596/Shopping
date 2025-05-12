@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/features/home/data/model/product_model/product_model.dart';
+import '../../data/model/product_model/product_model.dart';
 import 'package:get/get.dart';
 
 class CartController extends GetxController {

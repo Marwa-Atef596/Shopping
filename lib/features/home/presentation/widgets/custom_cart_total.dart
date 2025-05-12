@@ -1,6 +1,6 @@
-import 'package:ecommerce_app/core/utils/custom_button.dart';
-import 'package:ecommerce_app/core/utils/text_utils.dart';
-import 'package:ecommerce_app/features/home/logic/controller/cart_controller.dart';
+import '../../../../core/utils/custom_button.dart';
+import '../../../../core/utils/text_utils.dart';
+import '../../logic/controller/cart_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

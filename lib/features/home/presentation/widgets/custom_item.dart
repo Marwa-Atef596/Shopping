@@ -1,6 +1,6 @@
-import 'package:ecommerce_app/features/home/data/model/product_model/product_model.dart';
-import 'package:ecommerce_app/features/home/logic/controller/cart_controller.dart';
-import 'package:ecommerce_app/features/home/presentation/screens/product_details.dart';
+import '../../data/model/product_model/product_model.dart';
+import '../../logic/controller/cart_controller.dart';
+import '../screens/product_details.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

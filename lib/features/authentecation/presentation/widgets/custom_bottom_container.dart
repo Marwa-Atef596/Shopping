@@ -1,6 +1,6 @@
-import 'package:ecommerce_app/core/theme.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../core/theme.dart';
 import '../../../../core/utils/text_utils.dart';
 
 class CustomBottomContainer extends StatelessWidget {

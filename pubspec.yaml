@@ -29,12 +29,13 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   badges: ^3.1.2
-  carousel_slider: ^4.2.1
+  carousel_slider: ^5.0.0
   cupertino_icons: ^1.0.8
   firebase_auth: ^5.5.2
   firebase_core: ^3.13.0
   flutter:
     sdk: flutter
+  flutter_rating_bar: ^4.0.1
   get: ^4.7.2
   get_storage: ^2.1.1
   google_fonts: ^6.2.1

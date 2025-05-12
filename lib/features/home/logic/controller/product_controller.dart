@@ -1,5 +1,5 @@
-import 'package:ecommerce_app/features/home/data/api/api_services.dart';
-import 'package:ecommerce_app/features/home/data/model/product_model/product_model.dart';
+import '../../data/api/api_services.dart';
+import '../../data/model/product_model/product_model.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -7,6 +7,7 @@ class ProductController extends GetxController {
   var productList = <ProductModel>[].obs;
   var favoriteList = <ProductModel>[].obs;
   var isLoading = true.obs;
+  double? selectedRating;
   final GetStorage storage = GetStorage();
 
   @override

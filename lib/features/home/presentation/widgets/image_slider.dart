@@ -1,8 +1,7 @@
-//import 'package:carousel_slider/carousel_slider.dart' as carousel;
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:ecommerce_app/core/routing/app_router.dart';
-import 'package:ecommerce_app/core/theme.dart';
-import 'package:ecommerce_app/features/home/presentation/widgets/color_picker.dart';
+import '../../../../core/routing/app_router.dart';
+import '../../../../core/theme.dart';
+import 'color_picker.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -24,8 +23,6 @@ class ImageSlider extends StatefulWidget {
 }
 
 class _ImageSliderState extends State<ImageSlider> {
-  // final carousel.CarouselController carouselController =
-  //     carousel.CarouselController();
   final cartController = Get.find<CartController>();
 
   int currentPage = 0;
@@ -43,7 +40,6 @@ class _ImageSliderState extends State<ImageSlider> {
       children: [
         CarouselSlider.builder(
           itemCount: 3,
-          //  carouselController: carouselController,
           options: CarouselOptions(
             height: 500,
             enlargeCenterPage: true,
@@ -155,7 +151,7 @@ class _ImageSliderState extends State<ImageSlider> {
                     child: Container(
                       padding: EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                          color: Colors.black.withValues(alpha: .3),
+                          color: Colors.black.withValues(alpha: .2),
                           shape: BoxShape.circle),
                       child: Icon(
                         Icons.shopping_cart,
