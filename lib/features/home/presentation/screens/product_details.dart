@@ -1,3 +1,7 @@
+import 'package:ecommerce_app/features/home/presentation/widgets/add_cart_button.dart';
+import 'package:ecommerce_app/features/home/presentation/widgets/custom_cart_total.dart';
+import 'package:ecommerce_app/features/home/presentation/widgets/item_size.dart';
+
 import '../../data/model/product_model/product_model.dart';
 import '../widgets/image_slider.dart';
 import '../widgets/item_info.dart';
@@ -19,6 +23,10 @@ class ProductDetails extends StatelessWidget {
               productModel: productModel,
             ),
             ItemInfo(
+              productModel: productModel,
+            ),
+            ItemSize(),
+            AddCartButton(
               productModel: productModel,
             ),
           ],

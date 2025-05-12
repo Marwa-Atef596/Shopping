@@ -41,7 +41,7 @@ class _ImageSliderState extends State<ImageSlider> {
         CarouselSlider.builder(
           itemCount: 3,
           options: CarouselOptions(
-            height: 500,
+            height: 450,
             enlargeCenterPage: true,
             autoPlay: true,
             enableInfiniteScroll: false,

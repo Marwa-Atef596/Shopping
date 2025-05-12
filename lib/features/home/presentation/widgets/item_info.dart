@@ -34,7 +34,7 @@ class ItemInfo extends StatelessWidget {
               Obx(() {
                 return Container(
                   decoration: BoxDecoration(
-                      color: Colors.black.withValues(alpha: .3),
+                      color: Colors.black.withValues(alpha: .2),
                       shape: BoxShape.circle),
                   child: IconButton(
                     onPressed: () {
@@ -59,11 +59,12 @@ class ItemInfo extends StatelessWidget {
             children: [
               TextUtils(
                 text: productModel.rating!.rate.toString(),
-                fontSize: 20,
+                fontSize: 18,
                 color: Get.isDarkMode ? Colors.white : Colors.black,
                 fontWeight: FontWeight.bold,
               ),
               RatingBar.builder(
+                itemSize: 30,
                 initialRating: productModel.rating!.rate!,
                 minRating: 1,
                 direction: Axis.horizontal,
