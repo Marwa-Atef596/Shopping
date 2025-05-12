@@ -1,3 +1,5 @@
+import 'package:ecommerce_app/features/home/logic/controller/product_controller.dart';
+
 import '../../../../core/theme.dart';
 import '../../../../core/utils/text_utils.dart';
 import '../../../authentecation/presentation/widgets/custom_text_field.dart';
@@ -7,8 +9,8 @@ import 'package:get/get.dart';
 import '../widgets/custom_grid_item.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
+  HomeScreen({super.key});
+  final controller = Get.put(ProductController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,11 +48,24 @@ class HomeScreen extends StatelessWidget {
                 Row(
                   children: [
                     Expanded(
-                      child: CustomTextField(
-                        obscureText: false,
-                        hintText: 'Search You\'re Looking For',
-                        prefixIcon: Icon(Icons.search),
-                      ),
+                      child: GetBuilder<ProductController>(builder: (_) {
+                        return CustomTextField(
+                          controller: controller.searchText,
+                          onChanged: (searchName) {
+                            controller.searchItem(searchName);
+                          },
+                          obscureText: false,
+                          hintText: 'Search You\'re Looking For',
+                          prefixIcon: Icon(Icons.search),
+                          suffixIcon: controller.searchText.text.isNotEmpty
+                              ? IconButton(
+                                  onPressed: () {
+                                    controller.clearSearch();
+                                  },
+                                  icon: Icon(Icons.close))
+                              : SizedBox(),
+                        );
+                      }),
                     ),
                     IconButton(
                       onPressed: () {},

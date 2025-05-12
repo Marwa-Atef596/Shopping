@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 import '../../data/api/api_services.dart';
 import '../../data/model/product_model/product_model.dart';
 import 'package:get/get.dart';
@@ -9,7 +11,8 @@ class ProductController extends GetxController {
   var isLoading = true.obs;
   double? selectedRating;
   final GetStorage storage = GetStorage();
-
+  var searchList = <ProductModel>[].obs;
+  TextEditingController searchText = TextEditingController();
   @override
   void onInit() {
     super.onInit();
@@ -51,5 +54,21 @@ class ProductController extends GetxController {
 
   bool isFavorite(int productId) {
     return favoriteList.any((element) => element.id == productId);
+  }
+
+  void searchItem(String searchName) {
+    searchName = searchName.toLowerCase();
+    searchList.value = productList.where((search) {
+      var searchTitle = search.title!.toLowerCase();
+      var searchPrice = search.price.toString().toLowerCase();
+      return searchTitle.contains(searchName) ||
+          searchPrice.contains(searchName);
+    }).toList();
+    update();
+  }
+
+  void clearSearch() {
+    searchText.clear();
+    searchItem('');
   }
 }

@@ -21,19 +21,30 @@ class CustomGridItem extends StatelessWidget {
         );
       } else {
         return Expanded(
-          child: GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 16,
-              mainAxisSpacing: 16,
-            ),
-            itemCount: controller.productList.length,
-            itemBuilder: (BuildContext context, int index) {
-              return CustomContainerItem(
-                productModel: controller.productList[index],
-              );
-            },
-          ),
+          child: controller.searchList.isEmpty &&
+                  controller.searchText.text.isNotEmpty
+              ? Image.asset('assets/images/search_empry_light.png')
+              : GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 16,
+                    mainAxisSpacing: 16,
+                  ),
+                  itemCount: controller.searchList.isEmpty
+                      ? controller.productList.length
+                      : controller.searchList.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    if (controller.searchList.isEmpty) {
+                      return CustomContainerItem(
+                        productModel: controller.productList[index],
+                      );
+                    } else {
+                      return CustomContainerItem(
+                        productModel: controller.searchList[index],
+                      );
+                    }
+                  },
+                ),
         );
       }
     });
