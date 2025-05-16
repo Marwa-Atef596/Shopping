@@ -9,7 +9,8 @@ class TextUtils extends StatelessWidget {
       required this.color,
       required this.fontWeight,
       this.decorationColor,
-      this.textAlign, this.overflow});
+      this.textAlign,
+      this.overflow});
   final String text;
   final double fontSize;
   final Color color;
@@ -17,7 +18,7 @@ class TextUtils extends StatelessWidget {
   final TextDecoration? decoration;
   final Color? decorationColor;
   final TextAlign? textAlign;
- final TextOverflow? overflow;
+  final TextOverflow? overflow;
   @override
   Widget build(BuildContext context) {
     return Text(
