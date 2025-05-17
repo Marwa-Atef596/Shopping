@@ -1,3 +1,6 @@
+import 'package:ecommerce_app/core/helpers/my_string.dart';
+import 'package:ecommerce_app/core/utils/localiztion.dart';
+
 import 'core/routing/app_router.dart';
 import 'core/theme.dart';
 import 'features/home/logic/controller/theme_controller.dart';
@@ -21,6 +24,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      locale: Locale(GetStorage().read<String>('lang').toString()),
+      fallbackLocale: Locale(ene),
+      translations: LocaliztionApp(),
       theme: ThemesApp.light,
       darkTheme: ThemesApp.dark,
       themeMode: ThemeController().themeDataGet,
