@@ -1,16 +1,16 @@
 # ecommerce_app
 
-A new Flutter project.
+A modern, responsive, and full-featured eCommerce application built using **Flutter**, **GetX**, and **Firebase**. This app includes product listing, authentication, cart management, order tracking, and more.
+## ✨ Features
 
-## Getting Started
+- 🛍️ Product browsing and search
+- ❤️ Favorites and wishlists
+- 🔐 Authentication (login/register)
+- 📦 Cart and checkout flow
+- 🚚 Address and delivery options
+- 📍 Geolocation and user address autofill
+- 🌙 Dark mode support
+- 🔄 State management with GetX
+- ☁️ Firebase backend (Database + Auth)
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🖼️ Screenshots
