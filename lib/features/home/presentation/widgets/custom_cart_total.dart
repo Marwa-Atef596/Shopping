@@ -1,3 +1,5 @@
+import '../../../../core/routing/app_router.dart';
+
 import '../../../../core/utils/custom_button.dart';
 import '../../../../core/utils/text_utils.dart';
 import '../../logic/controller/cart_controller.dart';
@@ -34,7 +36,9 @@ class CustomCartTotal extends StatelessWidget {
         Expanded(
           child: CustomButton(
             padding: EdgeInsets.all(10),
-            onPressed: () {},
+            onPressed: () {
+              Get.toNamed(Routs.paymentScreen);
+            },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

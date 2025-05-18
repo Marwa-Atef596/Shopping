@@ -1,9 +1,9 @@
-import '../../../../core/utils/text_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/helpers/my_string.dart';
 import '../../../../core/utils/custom_button.dart';
+import '../../../../core/utils/text_utils.dart';
 import '../../logic/controller/auth_controller.dart';
 import '../widgets/custom_text_field.dart';
 

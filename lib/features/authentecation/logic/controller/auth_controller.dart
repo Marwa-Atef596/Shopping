@@ -1,10 +1,11 @@
-import '../../../../core/routing/app_router.dart';
-import '../../../../core/theme.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+
+import '../../../../core/routing/app_router.dart';
+import '../../../../core/theme.dart';
 
 class AuthController extends GetxController {
   bool isVisible = false;

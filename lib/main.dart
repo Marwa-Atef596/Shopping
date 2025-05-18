@@ -1,5 +1,5 @@
-import 'package:ecommerce_app/core/helpers/my_string.dart';
-import 'package:ecommerce_app/core/utils/localiztion.dart';
+import 'core/helpers/my_string.dart';
+import 'core/utils/localiztion.dart';
 
 import 'core/routing/app_router.dart';
 import 'core/theme.dart';

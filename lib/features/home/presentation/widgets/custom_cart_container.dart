@@ -1,9 +1,9 @@
-import '../../logic/controller/cart_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/theme.dart';
 import '../../data/model/product_model/product_model.dart';
+import '../../logic/controller/cart_controller.dart';
 
 class CustomCartContainer extends StatelessWidget {
   CustomCartContainer({

@@ -1,3 +1,5 @@
+import '../../features/home/presentation/screens/payment_screen.dart';
+
 import '../../features/authentecation/logic/binding/auth_bindiing.dart';
 import '../../features/authentecation/presentation/screens/forget_password_screen.dart';
 import '../../features/authentecation/presentation/screens/login_screen.dart';
@@ -53,6 +55,15 @@ class AppRouter {
         ProductBinding(),
       ],
     ),
+    GetPage(
+      name: Routs.paymentScreen,
+      page: () => PaymentScreen(),
+      bindings: [
+        AuthBindiing(),
+        ProductBinding(),
+        HomeBinding(),
+      ],
+    ),
   ];
 }
 
@@ -63,4 +74,5 @@ class Routs {
   static const forgetPassScreen = '/forgetPassScreen';
   static const mainScreen = '/mainScreen';
   static const cartScreen = '/cartScreen';
+  static const paymentScreen = '/paymentScreen';
 }

@@ -1,8 +1,8 @@
-import 'package:ecommerce_app/core/utils/text_utils.dart';
-import 'package:ecommerce_app/features/home/presentation/widgets/dark_mode_widget.dart';
-import 'package:ecommerce_app/features/home/presentation/widgets/language_widget.dart';
-import 'package:ecommerce_app/features/home/presentation/widgets/log_out.dart';
-import 'package:ecommerce_app/features/home/presentation/widgets/profie_widget.dart';
+import '../../../../core/utils/text_utils.dart';
+import '../widgets/dark_mode_widget.dart';
+import '../widgets/language_widget.dart';
+import '../widgets/log_out.dart';
+import '../widgets/profie_widget.dart';
 
 import '../../../../core/theme.dart';
 import 'package:flutter/material.dart';

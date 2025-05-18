@@ -1,6 +1,6 @@
-import 'package:ecommerce_app/core/utils/text_utils.dart';
-import 'package:ecommerce_app/features/authentecation/logic/controller/auth_controller.dart';
-import 'package:ecommerce_app/features/home/logic/controller/settings_controller.dart';
+import '../../../../core/utils/text_utils.dart';
+import '../../../authentecation/logic/controller/auth_controller.dart';
+import '../../logic/controller/settings_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

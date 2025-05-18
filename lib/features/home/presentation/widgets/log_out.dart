@@ -1,5 +1,5 @@
-import 'package:ecommerce_app/core/theme.dart';
-import 'package:ecommerce_app/features/authentecation/logic/controller/auth_controller.dart';
+import '../../../../core/theme.dart';
+import '../../../authentecation/logic/controller/auth_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

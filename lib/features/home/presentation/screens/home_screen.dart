@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/features/home/logic/controller/product_controller.dart';
+import '../../logic/controller/product_controller.dart';
 
 import '../../../../core/theme.dart';
 import '../../../../core/utils/text_utils.dart';

@@ -1,11 +1,11 @@
-import '../../../../core/routing/app_router.dart';
-import '../../../../core/theme.dart';
-import '../../../../core/utils/text_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../core/routing/app_router.dart';
+import '../../../../core/theme.dart';
 import '../../../../core/utils/custom_button.dart';
 import '../../../../core/utils/custom_welcom_container.dart';
+import '../../../../core/utils/text_utils.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});

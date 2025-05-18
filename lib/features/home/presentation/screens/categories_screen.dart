@@ -1,7 +1,7 @@
-import 'package:ecommerce_app/core/theme.dart';
-import 'package:ecommerce_app/core/utils/text_utils.dart';
-import 'package:ecommerce_app/features/home/logic/controller/category_controller.dart';
-import 'package:ecommerce_app/features/home/presentation/widgets/category_item.dart';
+import '../../../../core/theme.dart';
+import '../../../../core/utils/text_utils.dart';
+import '../../logic/controller/category_controller.dart';
+import '../widgets/category_item.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

@@ -1,7 +1,7 @@
-import '../../../../core/utils/text_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../core/utils/text_utils.dart';
 import '../../logic/controller/product_controller.dart';
 
 class FavoriteScreen extends StatelessWidget {

@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
 import '../../../../core/helpers/my_string.dart';
 import '../../../../core/routing/app_router.dart';
 import '../../../../core/theme.dart';
@@ -6,9 +9,6 @@ import '../../../../core/utils/text_utils.dart';
 import '../../logic/controller/auth_controller.dart';
 import '../widgets/custom_bottom_container.dart';
 import '../widgets/custom_check_box.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
 import '../widgets/custom_text_field.dart';
 
 class SignUpScreen extends StatelessWidget {

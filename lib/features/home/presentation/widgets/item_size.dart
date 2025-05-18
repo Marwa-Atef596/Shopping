@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/core/theme.dart';
+import '../../../../core/theme.dart';
 import 'package:flutter/material.dart';
 
 class ItemSize extends StatefulWidget {

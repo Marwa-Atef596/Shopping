@@ -1,8 +1,8 @@
-import '../../../../core/theme.dart';
-import '../../logic/controller/product_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../core/theme.dart';
+import '../../logic/controller/product_controller.dart';
 import 'custom_container_item.dart';
 
 class CustomGridItem extends StatelessWidget {

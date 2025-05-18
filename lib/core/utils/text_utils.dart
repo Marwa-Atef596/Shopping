@@ -10,7 +10,7 @@ class TextUtils extends StatelessWidget {
       required this.fontWeight,
       this.decorationColor,
       this.textAlign,
-      this.overflow});
+      this.overflow, });
   final String text;
   final double fontSize;
   final Color color;

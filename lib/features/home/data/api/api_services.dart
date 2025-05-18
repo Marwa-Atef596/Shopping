@@ -1,6 +1,7 @@
+import 'package:http/http.dart' as http;
+
 import '../../../../core/helpers/my_string.dart';
 import '../model/product_model/product_model.dart';
-import 'package:http/http.dart' as http;
 
 class ApiServices {
   static Future<List<ProductModel>> getProduct() async {
